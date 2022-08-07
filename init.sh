@@ -3,5 +3,5 @@ sudo rm -rf /etc/nginx/sites-enabled/default
 sudo /etc/init.d/nginx restart
 
 
-sudo ln -sf /home/box/web/etc/gunicorn.conf /etc/gunicorn.d/test
+sudo ln -sf /home/box/web/etc/gunicorn.conf.py /etc/gunicorn.d/test
 sudo gunicorn -c /etc/gunicorn.d/test hello
