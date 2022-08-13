@@ -1,5 +1,7 @@
 {% extends 'qa/base.html' %}
 
+
+{% block content %}
 <ul>
     {% for question in page %}
     <li>
@@ -8,3 +10,4 @@
     </li>
     {% endfor %}
 </ul>
+{% endblock %}
