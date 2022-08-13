@@ -130,3 +130,5 @@ dmypy.json
 
 # Migrations, because using different dbs on local machine and on server
 migrations/
+
+local_settings.py
