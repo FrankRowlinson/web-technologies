@@ -1,0 +1,20 @@
+{% extends 'qa/base.html' %}
+
+<h2>
+    {{ question.title }}
+</h2>
+<p>
+    {{ question.text }}
+</p>
+<ul>
+    {% for answer in answers %}
+    <li>
+        <h4>
+            {{ answer.author }}
+        </h4>
+        <p>
+            {{ answer.text }}
+        </p>
+    </li>
+    {% endfor %}
+</ul>

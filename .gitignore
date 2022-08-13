@@ -127,3 +127,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Migrations, because using different dbs on local machine and on server
+migrations/

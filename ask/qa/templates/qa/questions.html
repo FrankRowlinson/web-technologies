@@ -1,0 +1,10 @@
+{% extends 'qa/base.html' %}
+
+<ul>
+    {% for question in page %}
+    <li>
+        {{ question.title }}<br>
+        <a href={{ question.get_absolute_url }}>question page</a>
+    </li>
+    {% endfor %}
+</ul>
