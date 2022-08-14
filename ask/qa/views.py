@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator
 from qa.models import *
-
+from qa.forms import *
+ 
 
 def test(request, *args, **kwargs):
     return HttpResponse('OK')
@@ -31,8 +32,29 @@ def show_popular(request):
     
 def show_question(request, id):
     question = get_object_or_404(Question, id=id)
+    if request.method == "POST":
+        form = AnswerForm(request.POST)
+        if form.is_valid():
+            form.save()
+            url = question.get_absolute_url()
+            return HttpResponseRedirect(url)
+    else:
+        form = AnswerForm(initial={'question': question.pk})
     answers = Answer.objects.filter(question=question)
-    return render(request, 'qa/question.html', context={'question': question, 'answers': answers})
+    context={'question': question, 'answers': answers, 'form': form}
+    return render(request, 'qa/question.html', context=context)
+
+def ask(request):
+    if request.method == "POST":
+        form = AskForm(request.POST)
+        if form.is_valid():
+            post = form.save()
+            url = post.get_absolute_url()
+            return HttpResponseRedirect(url)
+    else:
+        form = AskForm()
+    return render(request, 'qa/ask.html', {'form': form})
+
 
 
     

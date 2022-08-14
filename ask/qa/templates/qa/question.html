@@ -8,6 +8,13 @@
 <p>
     {{ question.text }}
 </p>
+<div>
+    <form action={% url 'question' question.id %} method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Submit answer</button>
+    </form>
+</div>
 <ul>
     {% for answer in answers %}
     <li>

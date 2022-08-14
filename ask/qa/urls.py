@@ -1,5 +1,5 @@
 from django.urls import path
-from qa.views import new_questions, show_popular, show_question, test
+from qa.views import *
 
 
 urlpatterns = [
@@ -7,7 +7,7 @@ urlpatterns = [
     path('login/', test),
     path('signup/', test),
     path('question/<int:id>/', show_question, name='question'),
-    path('ask/', test),
+    path('ask/', ask, name='ask'),
     path('popular/', show_popular, name='popular'),
     path('new/', test),
 ]
