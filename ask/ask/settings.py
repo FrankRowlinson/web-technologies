@@ -126,6 +126,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+LOGIN_URL = '/login/'
 
 try:
     from ask.local_settings import *

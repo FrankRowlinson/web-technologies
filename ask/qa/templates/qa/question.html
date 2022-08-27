@@ -3,8 +3,11 @@
 
 {% block content %}
 <h2>
-    {{ question.title }}
+    Question: {{ question.title }}
 </h2>
+<h3>
+    By {{ question.author }}
+</h3>
 <p>
     {{ question.text }}
 </p>
